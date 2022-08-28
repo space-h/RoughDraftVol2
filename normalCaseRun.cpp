@@ -28,6 +28,8 @@ void normalCaseRUN(string two, string three, int O, int L, int R, int I)
     search_w = two;
     filename = three;
 
+
+
     inputFile.open(filename);
 
     if (inputFile)
@@ -91,7 +93,7 @@ void normalCaseRUN(string two, string three, int O, int L, int R, int I)
         if (R == 1)
         {
             found = count - unfound - 1;
-            // -1 koska ensimmäinen rivi on rivi numero 1, eikä rivi numero 0. 
+            // -1 koska "count" ensimmäinen rivi on rivi numero 1, eikä rivi numero 0. 
 
         }
         if (O == 1)

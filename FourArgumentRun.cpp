@@ -26,9 +26,27 @@ void IVargumentRun(int argCee, string yksi, string kaksi, string kolme)
     int lineNumb = -2;
     int reverseSearch = -2;
     int ignoreCase = -2;
+    filename = kolme;
+
+    yksi.erase(0, 2); // removing "-o" from argv[2]
 
 
-    yksi.erase(0, 2);
+    try {
+        inputFile.open(filename);
+        if (inputFile) {
+            inputFile.close();
+        }
+        else 
+        {
+            throw 404;
+        }
+    }
+    catch (int F) 
+    {
+        cout << "\nFile not found, Error: " << F << ", seizing operations\n";
+        return;
+    }
+
 
     lineNumb = (yksi.find("l"));
     if (lineNumb != -1)
@@ -58,6 +76,8 @@ void IVargumentRun(int argCee, string yksi, string kaksi, string kolme)
         cout << "Ignoring cases ";
     }
     cout << ":" << endl;
+
+    //Tähän kohtaan argv[1] re-edit? Esimerkiksi -olodsandsani -> -oloi
 
     if (ignoreCase == 1)
         ignoreCaseRUN(kaksi, kolme, occurance, lineNumb, reverseSearch, ignoreCase);
